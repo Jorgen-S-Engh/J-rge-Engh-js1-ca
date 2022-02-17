@@ -13,16 +13,19 @@ async function callApi() {
   );
 
   const json = await respons.json();
+  const response = json.response;
+
   const data = json.response.songs;
 
   for (let i = 0; i < data.length; i++) {
-    console.log(data[i].artist_names);
-    console.log(data[i].full_title);
+    // console.log(data[i].artist_names);
+    // console.log(data[i].full_title);
 
     container.innerHTML += `
     <div>
       <h2>Song: ${data[i].full_title}</h2>
       <h3>Artist: ${data[i].artist_names}</h3>
+      <img src="${data[i].header_image_url}" alt="">
     </div>`;
   }
 
