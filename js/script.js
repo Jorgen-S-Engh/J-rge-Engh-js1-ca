@@ -1,4 +1,5 @@
 const container = document.querySelector(".container");
+const body = document.querySelector("body")
 
 async function callApi() {
   const respons = await fetch(
@@ -17,17 +18,21 @@ async function callApi() {
 
   const data = json.response.songs;
 
+  container.innerHTML= "";
+
+
   for (let i = 0; i < data.length; i++) {
     // console.log(data[i].artist_names);
     // console.log(data[i].full_title);
 
-    container.innerHTML += `
-    <div>
+    container.innerHTML += ` 
+    <a href="" class="song-item">
+      <img src="${data[i].header_image_url}" alt="">
       <h2>Song: ${data[i].full_title}</h2>
       <h3>Artist: ${data[i].artist_names}</h3>
-      <img src="${data[i].header_image_url}" alt="">
-    </div>`;
+    </a>`;
   }
+  body.innerHTML + `<body class="body"</body>`
 
   console.log(data);
 }
