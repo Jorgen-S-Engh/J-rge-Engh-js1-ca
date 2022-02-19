@@ -3,12 +3,13 @@ const body = document.querySelector("body");
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
+console.log(params);
 const id = params.get("id");
 console.log(id);
 
 async function callApi() {
   const respons = await fetch(
-    "https://genius.p.rapidapi.com/artists/16775/songs",
+    "https://genius.p.rapidapi.com/artists/16775/songs/",
     {
       method: "GET",
       headers: {
